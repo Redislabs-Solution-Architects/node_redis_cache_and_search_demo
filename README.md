@@ -78,3 +78,4 @@ SUMMARIZE ...: This option to return only the sections of the field which contai
 
 FT.SEARCH vehicle:merc:2018 "make" OR FT.SEARCH vehicle:merc:2018 "*" will return the complete JSON as blob of text.
 ```
+Visit https://oss.redislabs.com/redisearch/ for RediSearch documentation, usage, clients etc.
