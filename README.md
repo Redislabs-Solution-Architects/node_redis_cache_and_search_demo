@@ -19,7 +19,7 @@ Start the node app
 node vehicle_cache_server.js
 
 Open a browser or postman etc to execute the search query for a given vehicle type and year
-http://localhost:3000/api/search?query1=merc&query2=2018
+http://localhost:3000/api/search?make=merc&year=2018
 
 First query takes a long time
 "source": "National Highway Traffic Safety Administration Vehicle API"
