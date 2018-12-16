@@ -40,14 +40,14 @@ app.get('/api/search', (req, res) => {
 	var body = '';
 	var resultJSON = '';
 	// Extract the query from url and trim trailing spaces
-	const query1 = (req.query.query1).trim();
-	const query2 = (req.query.query2).trim();
+	const make = (req.query.make).trim();
+	const year = (req.query.year).trim();
 	// Build the NHTSA API URL
-	const searchUrl = `https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformakeyear/make/${query1}/modelyear/${query2}?format=json`;
+	const searchUrl = `https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformakeyear/make/${make}/modelyear/${year}?format=json`;
 
 	// Try fetching the result from Redis first in case we have it cached
-	const resultObj = client.hgetall(`vehicle:${query1}:${query2}`);
-	return client.hgetall(`vehicle:${query1}:${query2}`, (err, resultJSON) => {
+	const resultObj = client.hgetall(`vehicle:${make}:${year}`);
+	return client.hgetall(`vehicle:${make}:${year}`, (err, resultJSON) => {
 		// If that key exist in Redis store
 		if (resultJSON) {
 			res.on('data', function(chunk) {
@@ -63,7 +63,7 @@ app.get('/api/search', (req, res) => {
 			.then(response => {
 				const responseJSON = response.data;
 				// Save the NHTSA API response in Redis DB
-				client.hmset(`vehicle:${query1}:${query2}`, "RedisCacheResponse", JSON.stringify({ source: 'Redis Cache', ...responseJSON, }));
+				client.hmset(`vehicle:${make}:${year}`, "RedisCacheResponse", JSON.stringify({ source: 'Redis Cache', ...responseJSON, }));
 				// Send JSON response to client
 				return res.status(200).json({ source: 'National Highway Traffic Safety Administration Vehicle API', ...responseJSON, });
 			})
