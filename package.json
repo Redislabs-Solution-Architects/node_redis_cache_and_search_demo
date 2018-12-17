@@ -1,0 +1,30 @@
+{
+  "name": "node_redis_cache_and_search_demo",
+  "version": "1.0.0",
+  "description": "Demo app for redis core and RediSearch",
+  "main": "vehicle_cache_server.js",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "express": "^4.16.4",
+    "redis": "^2.8.0",
+    "response-time": "^2.3.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Redislabs-Solution-Architects/node_redis_cache_and_search_demo.git"
+  },
+  "keywords": [
+    "redis",
+    "redisearch"
+  ],
+  "author": "Virag Tripathi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Redislabs-Solution-Architects/node_redis_cache_and_search_demo/issues"
+  },
+  "homepage": "https://github.com/Redislabs-Solution-Architects/node_redis_cache_and_search_demo#readme"
+}
