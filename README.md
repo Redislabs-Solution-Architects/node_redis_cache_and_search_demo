@@ -12,8 +12,17 @@ Install with:
 
 ```
 Start or connect to a Redis DB with Search module (FT)
-e.g. redismod is quick and easy to start
-docker run -p 6379:6379 redislabs/redismod
+e.g.
+Download Redis Enterprise and create a DB with RediSearch module
+https://app.redislabs.com/#/rlec-downloads
+https://redislabs.com/redis-enterprise/technology/redis-search/
+OR
+TO quickly test and try use redismod which is a Redis Multi-Model DB docker instance
+docker run -d -p 6379:6379 redislabs/redismod
+OR
+Get Redis With the RedisSearch module pre-loaded from Redis Labs docker hub
+docker run -d -p 6379:6379 redislabs/redisearch:latest
+
 
 Start the node app
 node vehicle_cache_server.js
